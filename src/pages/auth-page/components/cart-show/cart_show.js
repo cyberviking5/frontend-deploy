@@ -90,29 +90,29 @@ function CartShow({
               console.log(walletaddress);
               setwalletaddress(walletaddress);
 
-              const client = new Web3Storage({ token: config.token });
-              console.log(client);
-              const blob = new Blob([JSON.stringify(data)], {
-                type: "application/json",
-              });
+              // const client = new Web3Storage({ token: config.token });
+              // console.log(client);
+              // const blob = new Blob([JSON.stringify(data)], {
+              //   type: "application/json",
+              // });
 
-              const files = [
-                new File([blob], "ultimate_digits_nft" + i + ".json"),
-              ];
-              const cid = await client.put(files);
-              console.log("stored files with cid:", cid);
-              try {
-                console.log(contract);
-                const transaction = await contract.mint(
-                  "https://ipfs.io/ipfs/" + cid + "/ultimate_digits_nft0.json"
-                );
+              // const files = [
+              //   new File([blob], "ultimate_digits_nft" + i + ".json"),
+              // ];
+              // const cid = await client.put(files);
+              // console.log("stored files with cid:", cid);
+              // try {
+              //   console.log(contract);
+              //   const transaction = await contract.mint(
+              //     "https://ipfs.io/ipfs/" + cid + "/ultimate_digits_nft0.json"
+              //   );
 
-                //function to upload metadata
-                transaction.wait().then((res) => {
-                  console.log(res);
+              //   //function to upload metadata
+              //   transaction.wait().then((res) => {
+              //     console.log(res);
                   setLoad(false);
                   setProceedTo("purchaseConfirmation");
-                });
+                // });
                 // const transaction2=await contract.SettingUniqueId(number," ")
                 // transaction.wait().then((res) => {
                 //   console.log(res);
@@ -120,9 +120,6 @@ function CartShow({
                 //   setProceedTo("purchaseConfirmation");
                 // });
                 // console.log(transaction2);
-              } catch (e) {
-                console.log(e);
-              }
             })
             .catch((err) => {
               console.log(err);
